@@ -94,206 +94,39 @@
         <div class="container">
             <h1>Subscribe To Our Channel</h1>
             <form>
-                <!-- <input type="email" placeholder="Enter Email... "> -->
-                <button type="submit" class="button_1"><a href="https://www.instagram.com/iamemmanuelabah/following/"></a> Instagram</button>
-                <button type="submit" class="button_1"> <a href="https://web.facebook.com/emmanuelaba79/?ref=page_internal"></a> Facebook</button>
-                <button type="submit" class="button_1">Youtube</button>
-                <button type="submit" class="button_1"><a href="href="https://twitter.com/emmanuelabah79"></a> Twitter</button>
+                {{-- <input type="email" placeholder="Enter Email... "> --}}
+                <a href="https://www.instagram.com/iamemmanuelabah/" target="_blank" class="foot-icon-bg-3"><span class="mat">INSTAGRAM</span></a>
+
+                <a href="https://twitter.com/emmanuelabahh?t=Syjf-bDWzA6_OysJ27svyg&s=09" target="_blank" class="foot-icon-bg-2"><span class="mat">TWITTER</span></a>
+                <a href="https://web.facebook.com/emmanuelaba79" target="_blank" class="foot-icon-bg-1"><span class="mat">FACEBOOK</span></a>
+                <a href="https://web.facebook.com/emmanuelaba79" target="_blank" class="foot-icon-bg-1"><span class="mat">YOUTUBE</span></a>
+
 
 
             </form>
         </div>
+
+        <footer>
+            <h2>CONTACT</h2>
+            <p>+1 929-571-4175 ( text only) <br> Info@emmanuelabah.com <br>Long Island New York USA, </p>
+                      </li>
+            <div class="foot-icons ">
+               <ul class="footer-social-links list-inline list-unstyled">
+                      <li><a href="https://web.facebook.com/emmanuelaba79" target="_blank" class="foot-icon-bg-1"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="https://twitter.com/emmanuelabahh?t=Syjf-bDWzA6_OysJ27svyg&s=09" target="_blank" class="foot-icon-bg-2"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="https://www.instagram.com/iamemmanuelabah/" target="_blank" class="foot-icon-bg-3"><i class="fa fa-instagram"></i></a></li>
+               </ul>
+               <p>&copy; {{ date("Y") }} <a href=""></a>. All Right Reserved</p>
+
+              </div><!--/.foot-icons-->
+            <div id="scroll-Top">
+               <i class="fa fa-angle-double-up return-to-top" id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+            </div><!--/.scroll-Top-->
+        </footer>
     </section>
-   {{--  <footer>
-        <p>East Web Design Inc, Copyright &copy; 2019</p>
-    </footer> --}}
+
 </body>
 </html>
 
-@section('scripts')
-    <script src="https://js.paystack.co/v1/inline.js"></script>
-    <script type="text/javascript">
-      fetchLocation();
 
-        function payWithPaystack(){
-            var customer   = $("#customer_name").val();
-            var phone      = $("#customer_phone").val();
-            var email      = $("#customer_email").val();
-            var car_price  = $("#car_price").val();
-            var amount     = parseInt(car_price) * 100;
-
-            var handler = PaystackPop.setup({
-             key: '{{ env("PAYSTACK_PUBLIC_KEY") }}',
-             email: email,
-             amount: amount,
-             currency: "NGN",
-             ref: 'RHEZONX'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-             metadata: {
-                custom_fields: [
-                   {
-                       display_name: "Mobile Number",
-                       variable_name: "mobile_number",
-                       value: phone
-                   }
-                ]
-             },
-                callback: function(response){
-                    // alert('success. transaction ref is ' + response.reference);
-                    var reference = response.reference;
-                    saveOrderRequest(reference);
-                },
-                onClose: function(){
-                    alert('window closed');
-                }
-            });
-       handler.openIframe();
-     }
-
-        function saveOrderRequest(reference) {
-            var _token = '{{ csrf_token() }}';
-            var customer   = $("#customer_name").val();
-            var phone      = $("#customer_phone").val();
-            var email      = $("#customer_email").val();
-            var location = $("#customer_location").val();
-            var destination = $("#customer_destination").val();
-            var pickup = $("#customer_pickup").val();
-            var dropoff = $("#customer_dropoff").val();
-            var duration = $("#customer_duration").val();
-            var members = $("#customer_members").val();
-            var car_id     = $("#car_id").val();
-
-            var query = {_token, amount, reference, customer, phone, email, car_id, location, destination, pickup, dropoff, duration, members}
-
-            fetch(`{{url('book/order')}}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(query)
-            }).then(r => {
-                return r.json();
-            }).then(results => {
-                console.log(results);
-            }).catch(err => {
-                console.log(err);
-            });
-        }
-
-        $(".travel-btn").click((e) => {
-            e.preventDefault();
-            window.location.href = "{{url('search-rides')}}";
-        });
-
-        function showBookNowModal(car) {
-            $("#car_id").val(car.id);
-            $("#car_model").val(car.model);
-            $("#car_year").val(car.year);
-            $("#car_price").val(car.price);
-
-            $("#image-section").html(`
-                <img src="${car.screenshot.document_url}" class="rounded" />
-            `);
-
-            $("#contents-section").html(`
-                <br />
-            `);
-
-            $("#book-now-modal").modal({
-                backdrop: false
-            });
-        }
-
-        function fetchLocation() {
-            fetch('{{url("database/location.json")}}').then(r => r.json()).then(data => {
-                $("#customer_location").html('');
-                $("#customer_location").append(`
-                    <option value="">-- select state --</option>
-                `);
-                $.each(data, function(index, val) {
-                    /* iterate through array or object */
-                    $("#customer_location").append(`
-                        <option value="${val.name}">${val.name}</option>
-                    `);
-                });
-
-                $("#customer_destination").html('');
-                $("#customer_destination").append(`
-                    <option value="">-- select state --</option>
-                `);
-                $.each(data, function(index, val) {
-                    /* iterate through array or object */
-                    $("#customer_destination").append(`
-                        <option value="${val.name}">${val.name}</option>
-                    `);
-                });
-
-                $("#search_location").html('');
-                $("#search_location").append(`
-                    <option value="">-- select state --</option>
-                `);
-                $.each(data, function(index, val) {
-                    /* iterate through array or object */
-                    $("#search_location").append(`
-                        <option value="${val.name}">${val.name}</option>
-                    `);
-                });
-
-                $("#search_destination").html('');
-                $("#search_destination").append(`
-                    <option value="">-- select state --</option>
-                `);
-                $.each(data, function(index, val) {
-                    /* iterate through array or object */
-                    $("#search_destination").append(`
-                        <option value="${val.name}">${val.name}</option>
-                    `);
-                });
-
-
-                $("#search_location_2").html('');
-                $("#search_location_2").append(`
-                    <option value="">-- select state --</option>
-                `);
-                $.each(data, function(index, val) {
-                    /* iterate through array or object */
-                    $("#search_location_2").append(`
-                        <option value="${val.name}">${val.name}</option>
-                    `);
-                });
-
-                $("#search_destination_2").html('');
-                $("#search_destination_2").append(`
-                    <option value="">-- select state --</option>
-                `);
-                $.each(data, function(index, val) {
-                    /* iterate through array or object */
-                    $("#search_destination_2").append(`
-                        <option value="${val.name}">${val.name}</option>
-                    `);
-                });
-
-
-
-            }).catch(err => {
-              console.log(err);
-            });
-        }
-
-        function showLocalGovt(){
-            var state = $("#state").val();
-            // console.log(state);
-            $.getJSON("/database/location.json", function(data){
-                $.each(data, function(index, val) {
-                    if(state == val.name){
-                        $("#lga").html("");
-                        $.each(val.lga, function(index, val){
-                            $("#lga").append(`
-                                <option value="${val}">${val}</option>
-                            `);
-                        })
-                    }
-                });
-            });
-        }
-    </script>
 @endsection

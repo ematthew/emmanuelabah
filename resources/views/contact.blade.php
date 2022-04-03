@@ -94,6 +94,8 @@
                         <li><a href="https://web.facebook.com/emmanuelaba79" target="_blank" class="foot-icon-bg-1"><i class="fa fa-facebook"> FACEBOOK</i></a> </li>
                       <li><a href="https://twitter.com/emmanuelabahh?t=Syjf-bDWzA6_OysJ27svyg&s=09" target="_blank" class="foot-icon-bg-2"><i class="fa fa-twitter">TWITTER PAGE</i></a></li>
                       <li><a href="https://www.instagram.com/iamemmanuelabah/" target="_blank" class="foot-icon-bg-3"><i class="fa fa-instagram">INSTAGRAM PAGE</i></a></li>
+                         <li><a href="https://www.instagram.com/iamemmanuelabah/" target="_blank" class="foot-icon-bg-3"><i class="fa fa-youtube">YOUTUBE PAGE</i></a></li>
+
             </ul>
           </article>
 
@@ -101,7 +103,7 @@
           <aside id="sidebar">
                 <div class="dark">
             <h3>Leave a Message</h3>
-            <form  method="post" action="{{url('contact.store') }}" class="quote">
+            <form  method="post" action="{{ route('contact.store') }}" class="quote">
                 @csrf
                     <div>
                         <label>Name</label><br>
@@ -157,6 +159,8 @@
                     <button class="button_1" name="send" type="submit">Send</button>
               </form>
                 </div>
+
+               </div>
           </aside>
         </div>
     </section>

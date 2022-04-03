@@ -23,12 +23,7 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/book', function () {
-    return view('book');
-});
-
 Route::get('/contact', [ContactUsFormController::class, 'createForm']);
 Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
-// Route::get('/contact',       'App\Http\Controllers\ContactUsFormController@createForm');
-// Route::post('/contact',       'App\Http\Controllers\ContactUsFormController@ContactUsForm')->name('contact.store');
+
