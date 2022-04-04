@@ -94,7 +94,7 @@
                         <li><a href="https://web.facebook.com/emmanuelaba79" target="_blank" class="foot-icon-bg-1"><i class="fa fa-facebook"> FACEBOOK</i></a> </li>
                       <li><a href="https://twitter.com/emmanuelabahh?t=Syjf-bDWzA6_OysJ27svyg&s=09" target="_blank" class="foot-icon-bg-2"><i class="fa fa-twitter">TWITTER PAGE</i></a></li>
                       <li><a href="https://www.instagram.com/iamemmanuelabah/" target="_blank" class="foot-icon-bg-3"><i class="fa fa-instagram">INSTAGRAM PAGE</i></a></li>
-                         <li><a href="https://www.instagram.com/iamemmanuelabah/" target="_blank" class="foot-icon-bg-3"><i class="fa fa-youtube">YOUTUBE PAGE</i></a></li>
+                         <li><a href="https://www.youtube.com/channel/UC2xey8b3dO6Uo7slbnqDhdw"><i class="fa fa-youtube">YOUTUBE PAGE</i></a></li>
 
             </ul>
           </article>

@@ -99,7 +99,7 @@
 
                 <a href="https://twitter.com/emmanuelabahh?t=Syjf-bDWzA6_OysJ27svyg&s=09" target="_blank" class="foot-icon-bg-2"><span class="mat">TWITTER</span></a>
                 <a href="https://web.facebook.com/emmanuelaba79" target="_blank" class="foot-icon-bg-1"><span class="mat">FACEBOOK</span></a>
-                <a href="https://web.facebook.com/emmanuelaba79" target="_blank" class="foot-icon-bg-1"><span class="mat">YOUTUBE</span></a>
+                <a href="https://www.youtube.com/channel/UC2xey8b3dO6Uo7slbnqDhdw"><span class="mat">YOUTUBE</span></a>
 
 
 

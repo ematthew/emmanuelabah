@@ -7,7 +7,7 @@
     <title>Emmanuel Abah | About</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
+<body style="background:#35424a;">
     <!--Header of the page-->
     <header>
         <div class="container">
@@ -30,10 +30,14 @@
     <section id="main">
         <div class="container">
           <article id="main-col">
-            <h1 class="page-title">About Emmanuel abah </h1>
-            <h4>Emmanuel Abah is a Nigerian singer songwriter of urban gospel worship songs, a song composer and arranger. <br>
-                An evangelist, an entrepreneur and a good governance advocate, Born January 2nd 1979.
-                
+            <h1 class="page-title" style="color: white; text-align: center; ">Name: Emmanuel abah  <br>
+            Date of Birth : 2nd January 1979
+            <br> Country of Residence: Nigeria/USA
+           <br>Nationality : Nigeria
+           <br> Tribe: Idoma</h1>
+            <h4 style="color: white; text-align: center;"> MISSION : <br>
+                To Minister in songs to the whole world <br> about the wonders and the goodness of <br>
+                our lord and Savior Jesus Christ .
                 </h4>
           </article>
 
@@ -50,8 +54,6 @@
           </aside>
         </div>
     </section>
-   <!--  <footer>
-        <p>East Web Design, Copyright &copy; 2019</p>
-    </footer> -->
+   
 </body>
 </html>
